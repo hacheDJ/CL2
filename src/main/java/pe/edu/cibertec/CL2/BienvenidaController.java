@@ -1,4 +1,4 @@
-package pe.edu.cibertec.controller;
+package pe.edu.cibertec.CL2;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

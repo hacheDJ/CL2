@@ -1,4 +1,4 @@
-package pe.edu.cibertec.controller;
+package pe.edu.cibertec.CL2;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,22 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pe.edu.cibertec.repository.PersonaRepository;
-import pe.edu.cibertec.model.Persona;
-
 @Controller
-//@RequestMapping("/persona")
+@RequestMapping("/persona")
 public class PersonaController {
-	
+
 	PersonaRepository pr;
 	
 	public PersonaController(PersonaRepository pr){
 		this.pr = pr;
 	}
-/*
-	@GetMapping("persona/listar")
+
+	@GetMapping
 	public String listar(Model model) {
 		List<Persona> personas = pr.findAll();
 		model.addAttribute("title", "Listado de Personas");
@@ -31,25 +29,27 @@ public class PersonaController {
 		return "persona/listar";
 	}
 	
-	@GetMapping("persona/registrar")
+	@GetMapping("/registrar")
 	public String frmRegistrar(Model model) {
+		model.addAttribute("title", "Registro de Personas");
 		Persona persona = new Persona();
 		model.addAttribute("personaForm", persona);
 		
-		return "persona/registrar";
+		return "persona/frmRegistrar";
 	}
 	
-	@GetMapping("persona/registrar")
+	@PostMapping("registrar")
 	public String registrar(Persona persona) {
 		pr.save(persona);
 		
-		return "redirect:/persona/listar";
+		return "redirect:/persona";
 	}
 	
-	@GetMapping("persona/{id}/actualizar")
+	@GetMapping("/{id}/actualizar")
 	public String frmActualizar(@PathVariable Integer id, Model model) {
+		model.addAttribute("title", "Actualizar persona");
 		Optional<Persona> personaOptional = pr.findById(id);
-		
+
 		if(personaOptional.isEmpty()) {
 			return "404";
 		}
@@ -57,10 +57,10 @@ public class PersonaController {
 		Persona persona = personaOptional.get();
 		model.addAttribute("persona", persona);
 		
-		return "persona/actualizar";
+		return "persona/frmActualizar";
 	}
 	
-	@GetMapping("persona/{id}")
+	@PostMapping("/{id}/actualizar")
 	public String actualizar(@PathVariable Integer id, Persona personaFrm) {
 		Optional<Persona> personaOptional = pr.findById(id);
 		
@@ -74,13 +74,13 @@ public class PersonaController {
 		persona.setEdad(personaFrm.getEdad());
 		pr.save(persona);
 		
-		return "redirect:/persona/listar";
+		return "redirect:/persona";
 	}
 	
-	@GetMapping("persona/{id}/eliminar")
+	@PostMapping("/{id}/eliminar")
 	public String eliminar(@PathVariable Integer id) {
 		pr.deleteById(id);
 		
-		return "redirect:/persona/listar";
-	}*/
+		return "redirect:/persona";
+	}
 }

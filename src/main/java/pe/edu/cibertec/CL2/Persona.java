@@ -1,4 +1,4 @@
-package pe.edu.cibertec.model;
+package pe.edu.cibertec.CL2;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,25 +11,25 @@ import jakarta.persistence.Table;
 public class Persona {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
+	Integer codigo;
 	String nombre;
 	String apellido;
 	String dni;
-	int edad;
+	Integer edad;
 	
 	public Persona() {}
 	
-	public Persona(String nombre, String apellido, int edad) {
+	public Persona(String nombre, String apellido, Integer edad) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
 	}
 	
-	public int getId() {
-		return id;
+	public Integer getCodigo() {
+		return codigo;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCodigo(Integer id) {
+		this.codigo = id;
 	}
 	public String getNombre() {
 		return nombre;
@@ -49,10 +49,10 @@ public class Persona {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	public int getEdad() {
+	public Integer getEdad() {
 		return edad;
 	}
-	public void setEdad(int edad) {
+	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
 	

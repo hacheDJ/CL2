@@ -13,14 +13,10 @@
     <nav>
         <ul>
             <li><a th:href="@{/persona/listar}">Persona</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Fotos</a></li>
-            <li><a href="#">Comentarios</a></li>
         </ul>
     </nav>
     <main>
-        <h1>Registro de Personas</h1>
-        <form th:action="@{/persona/registrar}" method="POST" th:object="${personaForm}">
+        <form th:action="@{/persona/registrar}" method="POST" th:object="${personaFrm}">
             <div>
                 <label for="nombre">Nombre</label>
                 <input id="nombre" type="text" th:field="*{nombre}">
@@ -28,6 +24,10 @@
             <div>
                 <label for="apellido">Apellido</label>
                 <input id="apellido" type="text" th:field="*{apellido}">
+            </div>
+            <div>
+                <label for="apellido">DNI</label>
+                <input id="apellido" type="number" th:field="*{dni}">
             </div>
             <div>
                 <label for="edad">Edad</label>

@@ -12,31 +12,31 @@
     </header>
     <nav>
         <ul>
-            <li><a th:href="@{/persona/listar}">Persona</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Fotos</a></li>
-            <li><a href="#">Comentarios</a></li>
+            <li><a th:href="@{/persona}">Persona</a></li>
         </ul>
     </nav>
     <main>
-        <a th:href="@{/persona/registrar}">Registrar nueva Persona</a>
-        <table>
+        <a th:href="@{/persona/registrar}">Registrar persona</a>
+        <table border="1px">
             <thead>
                 <tr>
                     <td>ID</td>
                     <td>Nombre</td>
                     <td>Apellido</td>
+                    <td>DNI</td>
                     <td>Edad</td>
+                    <td colspan="2">Acciones</td>
                 </tr>
             </thead>
-            <tbody>
-                <tr th:each="persona: ${personas}">
-                    <td th:text="${persona.id}">ID</td>
+            <tbody> 
+                <tr th:each="persona:${personas}">
+                    <td th:text="${persona.codigo}">ID</td>
                     <td th:text="${persona.nombre}">ID</td>
                     <td th:text="${persona.apellido}">ID</td>
-                    <td th:text="${persona.edad}">ID</td>
-                    <td><a th:href="@{/persona/{id}/actualizar(id=${persona.id})}">Actualizar</a></td>
-                    <td><a th:href="@{/persona/{id}/eliminar(id=${persona.id})}">Eliminar</a></td>
+                    <td th:text="${persona.apellido}">DNI</td>
+                    <td th:text="${persona.dni}">ID</td>
+                    <td><a th:href="@{/persona/{id}/actualizar(id=${persona.codigo})}">Actualizar</a></td>
+                    <td><a th:href="@{/persona/{id}/eliminar(id=${persona.codigo})}">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>
