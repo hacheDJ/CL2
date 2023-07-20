@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.cibertec.repository.PersonaRepository;
 import pe.edu.cibertec.model.Persona;
 
 @Controller
+//@RequestMapping("/persona")
 public class PersonaController {
 	
 	PersonaRepository pr;
@@ -19,7 +21,7 @@ public class PersonaController {
 	public PersonaController(PersonaRepository pr){
 		this.pr = pr;
 	}
-
+/*
 	@GetMapping("persona/listar")
 	public String listar(Model model) {
 		List<Persona> personas = pr.findAll();
@@ -80,5 +82,5 @@ public class PersonaController {
 		pr.deleteById(id);
 		
 		return "redirect:/persona/listar";
-	}
+	}*/
 }
