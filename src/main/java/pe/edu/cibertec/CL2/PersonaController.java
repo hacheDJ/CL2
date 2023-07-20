@@ -33,7 +33,7 @@ public class PersonaController {
 	public String frmRegistrar(Model model) {
 		model.addAttribute("title", "Registro de Personas");
 		Persona persona = new Persona();
-		model.addAttribute("personaForm", persona);
+		model.addAttribute("personaFrm", persona);
 		
 		return "persona/frmRegistrar";
 	}
@@ -77,7 +77,7 @@ public class PersonaController {
 		return "redirect:/persona";
 	}
 	
-	@PostMapping("/{id}/eliminar")
+	@GetMapping("/{id}/eliminar")
 	public String eliminar(@PathVariable Integer id) {
 		pr.deleteById(id);
 		

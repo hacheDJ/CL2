@@ -15,28 +15,8 @@
             <li><a th:href="@{/persona/listar}">Persona</a></li>
         </ul>
     </nav>
-    <main><!--
-        <form th:action="@{/persona/{id}/actualizar(id=${persona.id})}" method="POST" th:object="${persona}">
-            <div>
-                <label for="nombre">Nombre</label>
-                <input id="nombre" type="text" th:field="*{nombre}">
-            </div>
-            <div>
-                <label for="apellido">Apellido</label>
-                <input id="apellido" type="text" th:field="*{apellido}">
-            </div>
-            <div>
-                <label for="dni">DNI</label>
-                <input id="dni" type="number" th:field="*{dni}">
-            </div>
-            <div>
-                <label for="edad">Edad</label>
-                <input id="edad" type="number" th:field="*{edad}">
-            </div>
-            <button>Actualizar</button>
-        </form>-->
-
-        <form  method="POST" th:object="${persona}">
+    <main>
+        <form  th:action="@{/persona/{id}/actualizar(id=${persona.codigo})}" method="POST" th:object="${persona}">
             <div>
                 <label for="nombre">Nombre</label>
                 <input id="nombre" type="text" th:field="*{nombre}">
