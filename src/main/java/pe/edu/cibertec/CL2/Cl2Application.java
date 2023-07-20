@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"pe.edu.cibertec.model","pe.edu.cibertec.repository"})
+@ComponentScan(basePackages = {"pe.edu.cibertec.model","pe.edu.cibertec.repository", "pe.edu.cibertec.model"})
 public class Cl2Application {
 
 	public static void main(String[] args) {

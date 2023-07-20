@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+</head>
+<body>
+    <header>
+        <h1 th:text="${title}"></h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/persona/listar}">Persona</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Fotos</a></li>
+            <li><a href="#">Comentarios</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Registro de Personas</h1>
+        <form th:action="@{/persona/{id(id=${persona.id})}}" method="POST" th:object="${personaForm}">
+            <div>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" th:field="*{nombre}">
+            </div>
+            <div>
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" th:field="*{apellido}">
+            </div>
+            <div>
+                <label for="edad">Edad</label>
+                <input id="edad" type="number" th:field="*{edad}">
+            </div>
+            <button>Registrar</button>
+        </form>
+    </main>
+    <footer>
+        Página creada para el CL2 del curso DAW1, todos los derechos reservados.
+    </footer>
+</body>
+</html>
