@@ -71,6 +71,7 @@ public class PersonaController {
 		Persona persona = personaOptional.get();
 		persona.setNombre(personaFrm.getNombre());
 		persona.setApellido(personaFrm.getApellido());
+		persona.setDni(personaFrm.getDni());
 		persona.setEdad(personaFrm.getEdad());
 		pr.save(persona);
 		
